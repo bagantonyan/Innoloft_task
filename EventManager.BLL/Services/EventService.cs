@@ -4,6 +4,7 @@ using EventManager.BLL.Exceptions;
 using EventManager.BLL.Services.Interfaces;
 using EventManager.DAL.Entities;
 using EventManager.DAL.UnitOfWork;
+using EventManager.Shared.RequestFeatures;
 
 namespace EventManager.BLL.Services
 {
@@ -57,9 +58,9 @@ namespace EventManager.BLL.Services
             await unitOfWork.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<EventResponseDTO>> GetAllByUserIdAsync(int userId, bool trackChanges)
+        public async Task<IEnumerable<EventResponseDTO>> GetAllByUserIdAsync(int userId, PagingParameters pagingParameters, bool trackChanges)
         {
-            var eventEntities = await unitOfWork.EventRepository.GetAllByUserIdAsync(userId, trackChanges);
+            var eventEntities = await unitOfWork.EventRepository.GetAllByUserIdAsync(userId, pagingParameters, trackChanges);
 
             return mapper.Map<IEnumerable<EventResponseDTO>>(eventEntities);
         }
@@ -74,9 +75,9 @@ namespace EventManager.BLL.Services
             return mapper.Map<EventResponseDTO>(eventEntity);
         }
 
-        public async Task<IEnumerable<EventResponseDTO>> GetAllAsync(bool trackChanges)
+        public async Task<IEnumerable<EventResponseDTO>> GetAllAsync(PagingParameters pagingParameters, bool trackChanges)
         {
-            var eventEntities = await unitOfWork.EventRepository.GetAllAsync(trackChanges);
+            var eventEntities = await unitOfWork.EventRepository.GetAllAsync(pagingParameters, trackChanges);
 
             return mapper.Map<IEnumerable<EventResponseDTO>>(eventEntities);
         }

@@ -2,11 +2,12 @@
 using EventManager.API.Models.Events;
 using EventManager.BLL.DTOs.Events;
 using EventManager.BLL.Services.Interfaces;
+using EventManager.Shared.RequestFeatures;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EventManager.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class EventsController : ControllerBase
     {
@@ -21,15 +22,15 @@ namespace EventManager.API.Controllers
             this.eventService = eventService;
         }
 
-        [HttpPost("Create")]
+        [HttpPost]
         public async Task<ActionResult<EventResponseModel>> Create([FromBody] CreateEventRequestModel requestModel)
         {
             var eventResponseDTO = await eventService.CreateAsync(mapper.Map<CreateEventRequestDTO>(requestModel));
 
-            return CreatedAtAction(nameof(GetByUserIdAndEventId), new { id = eventResponseDTO.Id }, mapper.Map<EventResponseModel>(eventResponseDTO));
+            return CreatedAtAction(nameof(GetByUserIdAndEventId), new { userId = requestModel.UserId, eventId = eventResponseDTO.Id }, mapper.Map<EventResponseModel>(eventResponseDTO));
         }
 
-        [HttpPut("Update")]
+        [HttpPut]
         public async Task<IActionResult> Update([FromBody] UpdateEventRequestModel requestModel)
         {
             await eventService.UpdateAsync(mapper.Map<UpdateEventRequestDTO>(requestModel));
@@ -37,34 +38,34 @@ namespace EventManager.API.Controllers
             return NoContent();
         }
 
-        [HttpGet("Get/{userId}/{eventId}")]
-        public async Task<ActionResult<EventResponseModel>> GetByUserIdAndEventId([FromQuery] GetByIdRequestModel requestModel)
+        [HttpGet]
+        public async Task<ActionResult<EventResponseModel>> GetByUserIdAndEventId(int userId, int eventId)
         {
-            var eventResponseDTO = await eventService.GetByIdAsync(requestModel.UserId, requestModel.EventId, trackChanges: false);
+            var eventResponseDTO = await eventService.GetByIdAsync(userId, eventId, trackChanges: false);
 
             return Ok(mapper.Map<EventResponseModel>(eventResponseDTO));
         }
 
-        [HttpGet("GetAll/{userId}")]
-        public async Task<ActionResult<IEnumerable<EventResponseModel>>> GetAllByUserId([FromQuery] GetAllByUserIdRequestModel requestModel)
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EventResponseModel>>> GetAllByUserId(int userId, [FromQuery] PagingParameters pagingParameters)
         {
-            var eventResponseDTOs = await eventService.GetAllByUserIdAsync(requestModel.UserId, trackChanges: false);
+            var eventResponseDTOs = await eventService.GetAllByUserIdAsync(userId, pagingParameters, trackChanges: false);
 
             return Ok(mapper.Map<IEnumerable<EventResponseModel>>(eventResponseDTOs));
         }
 
-        [HttpGet("GetAll")]
-        public async Task<ActionResult<IEnumerable<EventResponseModel>>> GetAll()
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<EventResponseModel>>> GetAll([FromQuery] PagingParameters pagingParameters)
         {
-            var eventResponseDTOs = await eventService.GetAllAsync(trackChanges: false);
+            var eventResponseDTOs = await eventService.GetAllAsync(pagingParameters, trackChanges: false);
 
             return Ok(mapper.Map<IEnumerable<EventResponseModel>>(eventResponseDTOs));
         }
 
-        [HttpDelete("Delete/{userId}/{eventId}")]
-        public async Task<IActionResult> Delete([FromQuery] DeleteEventRequestModel requestModel)
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int userId, int eventId)
         {
-            await eventService.DeleteAsync(requestModel.UserId, requestModel.EventId);
+            await eventService.DeleteAsync(userId, eventId);
 
             return NoContent();
         }

@@ -1,8 +1,6 @@
-﻿using EventManager.DAL.Entities.Interfaces;
-
-namespace EventManager.DAL.Entities
+﻿namespace EventManager.DAL.Entities
 {
-    public abstract class BaseEntity : IBaseEntity
+    public abstract class BaseEntity
     {
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }

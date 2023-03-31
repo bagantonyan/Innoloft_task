@@ -6,7 +6,7 @@ namespace EventManager.DAL.Configurations
 {
     public abstract class BaseEntityConfiguration<TEntity> : IEntityTypeConfiguration<TEntity> where TEntity : BaseEntity
     {
-        public void Configure(EntityTypeBuilder<TEntity> builder)
+        public virtual void Configure(EntityTypeBuilder<TEntity> builder)
         {
             builder.HasQueryFilter(f => EF.Property<DateTime?>(f, "DeletedDate") == null);
 

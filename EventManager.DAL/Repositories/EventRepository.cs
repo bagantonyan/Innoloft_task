@@ -1,6 +1,7 @@
 ﻿using EventManager.DAL.Contexts;
 using EventManager.DAL.Entities;
 using EventManager.DAL.Repositories.Interfaces;
+using EventManager.Shared.RequestFeatures;
 using Microsoft.EntityFrameworkCore;
 
 namespace EventManager.DAL.Repositories
@@ -9,12 +10,16 @@ namespace EventManager.DAL.Repositories
     {
         public EventRepository(EventDbContext dbContext) : base(dbContext) { }
 
-        public async Task<IEnumerable<Event>> GetAllAsync(bool trackChanges)
+        public async Task<IEnumerable<Event>> GetAllAsync(PagingParameters pagingParameters, bool trackChanges)
             => await GetAll(trackChanges)
+            .Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
+            .Take(pagingParameters.PageSize)
             .ToListAsync();
 
-        public async Task<IEnumerable<Event>> GetAllByUserIdAsync(int userId, bool trackChanges)
+        public async Task<IEnumerable<Event>> GetAllByUserIdAsync(int userId, PagingParameters pagingParameters, bool trackChanges)
             => await GetByCondition(e => e.UserId == userId, trackChanges)
+            .Skip((pagingParameters.PageNumber - 1) * pagingParameters.PageSize)
+            .Take(pagingParameters.PageSize)
             .ToListAsync();
 
         public async Task<Event> GetByIdAsync(int userID, int eventId, bool trackChanges)

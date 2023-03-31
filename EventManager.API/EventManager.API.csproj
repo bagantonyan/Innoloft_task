@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EventManager.BLL\EventManager.BLL.csproj" />
     <ProjectReference Include="..\EventManager.DAL\EventManager.DAL.csproj" />
+    <ProjectReference Include="..\EventManager.Shared\EventManager.Shared.csproj" />
   </ItemGroup>
 
 </Project>
