@@ -11,6 +11,7 @@ namespace EventManager.BLL.Mappings
         public BLLMappingProfile()
         {
             CreateMap<CreateEventRequestDTO, Event>();
+            CreateMap<UpdateEventRequestDTO, Event>();
             CreateMap<User, UserResponseDTO>();
             CreateMap<Event, EventResponseDTO>();
             CreateMap<Invitation, InvitationResponseDTO>()

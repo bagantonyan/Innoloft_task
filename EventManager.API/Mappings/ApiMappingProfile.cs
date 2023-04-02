@@ -14,6 +14,7 @@ namespace EventManager.API.Mappings
         {
             CreateMap<CreateEventRequestModel, CreateEventRequestDTO>()
                 .ForMember(dest => dest.Mode, src => src.MapFrom(e => e.Mode.ToString()));
+            CreateMap<UpdateEventRequestModel, UpdateEventRequestDTO>();
             CreateMap<UserResponseDTO, UserResponseModel>();
             CreateMap<EventResponseDTO, EventResponseModel>();
             CreateMap<SendInvitationRequestModel, SendInvitationRequestDTO>();

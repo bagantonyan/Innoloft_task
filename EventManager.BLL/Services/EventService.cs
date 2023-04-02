@@ -118,9 +118,19 @@ namespace EventManager.BLL.Services
             if (userEvent is not null)
                 throw new BadRequestException("User can't send participate request for it's own request");
 
+            var invitation = await unitOfWork.InvitationRepository
+                .GetByUserIdAndEventId(userId, eventId, trackChanges: true);
+
+            if (invitation is not null)
+            {
+                Invitation.ApproveInvitation(invitation);
+                unitOfWork.InvitationRepository.Update(invitation);
+            }
+
             eventEntity.Participants.Add(EventParticipant.CreateParticipant(userId, eventId));
 
             unitOfWork.EventRepository.Update(eventEntity);
+
             await unitOfWork.SaveChangesAsync();
         }
 

@@ -18,5 +18,8 @@
                    ReceiverId = receiverId,
                    EventId = eventId
                };
+
+        public static void ApproveInvitation(Invitation invitation)
+            => invitation.Approved = true;
     }
 }

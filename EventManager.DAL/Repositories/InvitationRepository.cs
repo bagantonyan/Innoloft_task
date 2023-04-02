@@ -22,5 +22,9 @@ namespace EventManager.DAL.Repositories
                     .Include(i => i.Receiver)
                     .Include(i => i.Event)
                     .ToListAsync();
+
+        public async Task<Invitation> GetByUserIdAndEventId(int userId, int eventId, bool trackChanges)
+            => await GetByCondition(i => i.ReceiverId == userId && i.EventId == eventId, trackChanges)
+                    .SingleOrDefaultAsync();
     }
 }

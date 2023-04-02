@@ -42,7 +42,7 @@ namespace EventManager.API.Controllers
         {
             await eventService.UpdateAsync(mapper.Map<UpdateEventRequestDTO>(requestModel));
 
-            return NoContent();
+            return Ok();
         }
 
         [HttpGet]
@@ -84,7 +84,7 @@ namespace EventManager.API.Controllers
         {
             await eventService.DeleteAsync(userId, eventId);
 
-            return NoContent();
+            return Ok();
         }
 
         [HttpPost]
@@ -96,7 +96,7 @@ namespace EventManager.API.Controllers
         {
             await eventService.ParticipateAsync(requestModel.UserId, requestModel.EventId);
 
-            return NoContent();
+            return Ok();
         }
 
         [HttpPost]
@@ -108,7 +108,7 @@ namespace EventManager.API.Controllers
         {
             await eventService.SendInvitationAsync(mapper.Map<SendInvitationRequestDTO>(requestModel));
 
-            return NoContent();
+            return Ok();
         }
 
         [HttpGet]

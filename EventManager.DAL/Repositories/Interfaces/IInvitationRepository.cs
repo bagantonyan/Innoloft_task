@@ -6,5 +6,6 @@ namespace EventManager.DAL.Repositories.Interfaces
     {
         Task<IEnumerable<Invitation>> GetReceivedInvitationsAsync(int receiverId);
         Task<IEnumerable<Invitation>> GetSentInvitationsAsync(int senderId);
+        Task<Invitation> GetByUserIdAndEventId(int userId, int eventId, bool trackChanges);
     }
 }
