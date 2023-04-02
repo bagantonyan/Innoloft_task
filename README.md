@@ -17,6 +17,7 @@ docker compose up
 ```
 ## Functionality
 
+```
 ### /api/Events/Create - Create new event for user
 ### /api/Events/Update - Update user's existing event
 ### /api/Events/GetById - Get event by id
@@ -27,3 +28,4 @@ docker compose up
 ### /api/Events/SendInvitation - Send invitation to another user
 ### /api/Events/GetReceivedInvitations - Get current user's received invitations
 ### /api/Events/GetSentInvitations - Get current user's sent invitations
+```
