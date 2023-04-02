@@ -15,6 +15,11 @@ after
 ```
 docker compose up
 ```
+and after enter this URL in browser to open a swagger UI. Here port number is 61475, but you should replace it with your docker running container port.
+```
+https://localhost:61475/swagger/index.html
+```
+
 ## Functionality
 
 ```
