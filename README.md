@@ -7,7 +7,7 @@
 ## Setup Instructions
 
 ### The database is SQLite, so you don't need to configure it. Also there is seed Users data in database, imported from API.
-### You just need to run docker container. Go to Solution directory and use this commands
+### You just need to run docker container. Go to Solution directory and use this commands, or you can run locally EventManager.API.
 ```
 docker compose build 
 ```
