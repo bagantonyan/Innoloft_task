@@ -7,7 +7,7 @@
 ## Setup Instructions
 
 ### The database is SQLite, so you don't need to configure it
-### You just need to run docker container. Use this commands in docker-compose terminal
+### You just need to run docker container. Go to Solution directory and use this commands
 ```
 docker compose build 
 ```
