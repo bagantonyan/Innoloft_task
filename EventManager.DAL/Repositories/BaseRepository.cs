@@ -30,5 +30,8 @@ namespace EventManager.DAL.Repositories
 
         public void Delete(TEntity entity)
             => _dbSet.Remove(entity);
+
+        public async Task AddRangeAsync(IEnumerable<TEntity> entities)
+            => await _dbSet.AddRangeAsync(entities);
     }
 }

@@ -3,9 +3,7 @@ using EventManager.API.Validations.Events;
 using EventManager.BLL.Mappings;
 using EventManager.BLL.Services;
 using EventManager.BLL.Services.Interfaces;
-using EventManager.DAL.Caching;
 using EventManager.DAL.Contexts;
-using EventManager.DAL.Entities;
 using EventManager.DAL.UnitOfWork;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -42,7 +40,6 @@ namespace EventManager.API.Extensions
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IEventService, EventService>();
-            services.AddScoped<ICacheService<BaseEntity>, CacheService<BaseEntity>>();
 
             services.AddAutoMapper(config =>
             {

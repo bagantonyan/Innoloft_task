@@ -1,4 +1,6 @@
-﻿namespace EventManager.API.Models.Events
+﻿using EventManager.Shared.Enums;
+
+namespace EventManager.API.Models.Events
 {
     public class CreateEventRequestModel
     {
@@ -7,7 +9,7 @@
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string TimeZone { get; set; }
-        public string Mode { get; set; }
+        public EventMode Mode { get; set; }
         public string? Location { get; set; }
         public bool Hidden { get; set; }
         public int UserId { get; set; }

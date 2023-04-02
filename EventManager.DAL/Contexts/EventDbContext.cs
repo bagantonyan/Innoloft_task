@@ -10,6 +10,9 @@ namespace EventManager.DAL.Contexts
         public EventDbContext(DbContextOptions<EventDbContext> options) : base(options) { }
 
         public DbSet<Event> Events { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Invitation> Invitations { get; set; }
+        public DbSet<EventParticipant> EventParticipants { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -19,6 +22,9 @@ namespace EventManager.DAL.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new EventConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new InvitationConfiguration());
+            modelBuilder.ApplyConfiguration(new EventParticipantConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

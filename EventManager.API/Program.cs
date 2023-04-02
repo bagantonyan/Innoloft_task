@@ -7,7 +7,7 @@ namespace EventManager.API
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -37,6 +37,10 @@ namespace EventManager.API
             app.UseHttpsRedirection();
             app.UseCors("CorsPolicy");
             app.UseRouting();
+
+            await app.MigrateDatabase();
+            await app.AddUsersFromExternalAPI();
+
             app.MapControllers();
 
             app.Run();

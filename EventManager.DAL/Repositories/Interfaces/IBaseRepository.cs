@@ -10,5 +10,6 @@ namespace EventManager.DAL.Repositories.Interfaces
         void Create(TEntity entity);
         void Update(TEntity entity);
         void Delete(TEntity entity);
+        Task AddRangeAsync(IEnumerable<TEntity> entities);
     }
 }

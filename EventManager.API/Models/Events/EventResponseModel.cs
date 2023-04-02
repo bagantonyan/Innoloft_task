@@ -1,4 +1,6 @@
-﻿namespace EventManager.API.Models.Events
+﻿using EventManager.API.Models.Users;
+
+namespace EventManager.API.Models.Events
 {
     public class EventResponseModel
     {
@@ -11,6 +13,6 @@
         public string Mode { get; private set; }
         public string? Location { get; private set; }
         public bool Hidden { get; private set; }
-        public int UserId { get; private set; }
+        public UserResponseModel User { get; set; }
     }
 }

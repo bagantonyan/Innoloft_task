@@ -22,8 +22,14 @@ namespace EventManager.DAL.Repositories
             .Take(pagingParameters.PageSize)
             .ToListAsync();
 
-        public async Task<Event> GetByIdAsync(int userID, int eventId, bool trackChanges)
-            => await GetByCondition(e => e.UserId == userID && e.Id == eventId, trackChanges)
+        public async Task<Event> GetByIdAsync(int eventId, bool trackChanges)
+            => await GetByCondition(e => e.Id == eventId, trackChanges)
+            .Include(e => e.User)
+            .Include(e => e.Participants)
+            .SingleOrDefaultAsync();
+
+        public async Task<Event> GetByUserIdAndEventIdAsync(int userId, int eventId, bool trackChanges)
+            => await GetByCondition(e => e.UserId == userId && e.Id == eventId, trackChanges)
             .SingleOrDefaultAsync();
     }
 }

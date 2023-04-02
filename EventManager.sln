@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventManager.DAL", "EventMa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventManager.BLL", "EventManager.BLL\EventManager.BLL.csproj", "{65920171-D237-4A14-B32D-364A5BEA95F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManager.Shared", "EventManager.Shared\EventManager.Shared.csproj", "{EB13FF17-8055-4339-946C-9C9CA709DD1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventManager.Shared", "EventManager.Shared\EventManager.Shared.csproj", "{EB13FF17-8055-4339-946C-9C9CA709DD1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

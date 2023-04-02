@@ -39,6 +39,10 @@ namespace EventManager.DAL.Configurations
 
             builder.Property(p => p.Hidden)
                 .IsRequired(true);
+
+            builder.HasOne(e => e.User)
+                .WithMany(u => u.Events)
+                .HasForeignKey(e => e.UserId);
         }
     }
 }

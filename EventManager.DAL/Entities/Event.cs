@@ -34,5 +34,7 @@
         public string? Location { get; private set; }
         public bool Hidden { get; private set; }
         public int UserId { get; private set; }
+        public User User { get; private set; }
+        public ICollection<EventParticipant> Participants { get; private set;}
     }
 }

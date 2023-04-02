@@ -31,9 +31,7 @@ namespace EventManager.API.Validations.Events
                 .MaximumLength(128);
 
             RuleFor(p => p.Mode)
-                .NotEmpty()
-                .NotNull()
-                .MaximumLength(8);
+                .IsInEnum();
 
             RuleFor(p => p.Location)
                 .NotEmpty()

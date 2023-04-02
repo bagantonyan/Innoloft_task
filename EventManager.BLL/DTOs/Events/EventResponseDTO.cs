@@ -1,4 +1,6 @@
-﻿namespace EventManager.BLL.DTOs.Events
+﻿using EventManager.BLL.DTOs.Users;
+
+namespace EventManager.BLL.DTOs.Events
 {
     public class EventResponseDTO
     {
@@ -11,6 +13,6 @@
         public string Mode { get; private set; }
         public string? Location { get; private set; }
         public bool Hidden { get; private set; }
-        public int UserId { get; private set; }
+        public UserResponseDTO User { get; set; }
     }
 }
