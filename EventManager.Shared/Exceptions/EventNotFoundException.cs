@@ -1,4 +1,4 @@
-﻿namespace EventManager.BLL.Exceptions
+﻿namespace EventManager.Shared.Exceptions
 {
     public class EventNotFoundException : NotFoundException
     {

@@ -1,5 +1,5 @@
 ﻿using EventManager.API.Models.ApiModels;
-using EventManager.BLL.Exceptions;
+using EventManager.Shared.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
 using Newtonsoft.Json;
 

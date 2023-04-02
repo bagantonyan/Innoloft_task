@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventManager.BLL", "EventMa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventManager.Shared", "EventManager.Shared\EventManager.Shared.csproj", "{EB13FF17-8055-4339-946C-9C9CA709DD1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManager.Tests", "EventManager.Tests\EventManager.Tests.csproj", "{BBD03122-FBE7-4B9E-9A34-9C962BE5C338}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{EB13FF17-8055-4339-946C-9C9CA709DD1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB13FF17-8055-4339-946C-9C9CA709DD1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB13FF17-8055-4339-946C-9C9CA709DD1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBD03122-FBE7-4B9E-9A34-9C962BE5C338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD03122-FBE7-4B9E-9A34-9C962BE5C338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD03122-FBE7-4B9E-9A34-9C962BE5C338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD03122-FBE7-4B9E-9A34-9C962BE5C338}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

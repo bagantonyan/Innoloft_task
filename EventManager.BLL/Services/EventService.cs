@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using EventManager.BLL.DTOs.Events;
 using EventManager.BLL.DTOs.Invitations;
-using EventManager.BLL.Exceptions;
 using EventManager.BLL.Services.Interfaces;
 using EventManager.DAL.Entities;
 using EventManager.DAL.UnitOfWork;
+using EventManager.Shared.Exceptions;
 using EventManager.Shared.RequestFeatures;
 
 namespace EventManager.BLL.Services
@@ -167,14 +167,6 @@ namespace EventManager.BLL.Services
                 .GetSentInvitationsAsync(senderId);
 
             return mapper.Map<IEnumerable<InvitationResponseDTO>>(invitations);
-        }
-
-        private async Task CheckUserExist(int userId)
-        {
-            var userEntity = await unitOfWork.UserRepository.GetByIdAsync(userId, trackChanges: false);
-
-            if (userEntity is null)
-                throw new UserNotFoundException(userId);
         }
     }
 }

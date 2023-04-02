@@ -1,4 +1,4 @@
-﻿namespace EventManager.BLL.Exceptions
+﻿namespace EventManager.Shared.Exceptions
 {
     public abstract class NotFoundException : Exception
     {
