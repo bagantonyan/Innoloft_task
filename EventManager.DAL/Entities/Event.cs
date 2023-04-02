@@ -2,28 +2,6 @@
 {
     public class Event : BaseEntity
     {
-        //public Event(
-        //    int userId,
-        //    string title,
-        //    string description,
-        //    DateTime startDate,
-        //    DateTime endDate,
-        //    string timeZone,
-        //    string mode,
-        //    bool hidden = false,
-        //    string? location = null)
-        //{
-        //    UserId = userId;
-        //    Title = title;
-        //    Description = description;
-        //    StartDate = startDate;
-        //    EndDate = endDate;
-        //    TimeZone = timeZone;
-        //    Mode = mode;
-        //    Hidden = hidden;
-        //    Location = location;
-        //}
-
         public int Id { get; private set; }
         public string Title { get; private set; }
         public string Description { get; private set; }
